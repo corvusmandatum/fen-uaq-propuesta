@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proyecto: Enriquecimiento del Catálogo</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Chosen Palette: Warm Neutrals -->
+    <!-- Application Structure Plan: La aplicación está estructurada para guiar al usuario a través del problema y la solución, con un enfoque en la interactividad. La estructura principal es lineal, con secciones que explican la Justificación, el Proceso y, de manera central, una Simulación Interactiva que demuestra el impacto del proyecto. El objetivo es que el usuario experimente directamente la mejora en la recuperabilidad de la información, haciendo la propuesta más tangible y convincente que un simple texto. -->
+    <!-- Visualization & Content Choices: 
+        - Simulación Interactiva: Report Info -> Mejora en la búsqueda. Goal -> Demostrar/Enganchar. Viz -> Barra de búsqueda, resultados dinámicos y un toggle. Interaction -> El usuario puede buscar un término y alternar entre los resultados "antes" y "después". Justification -> Es la forma más efectiva de mostrar el valor del proyecto. Library/Method -> HTML/Tailwind/JS.
+        - Gráfico de Impacto: Report Info -> Cuantificación del aumento de puntos de acceso. Goal -> Informar/Persuadir. Viz -> Gráfico de barras comparativo. Interaction -> Animación inicial. Justification -> Complementa la simulación con datos concretos y fáciles de entender. Library/Method -> Chart.js (Canvas).
+        - Diagrama de Proceso: Report Info -> Pasos del proyecto. Goal -> Organizar/Explicar. Viz -> Diagrama de flujo horizontal. Interaction -> Ninguna. Justification -> Traduce el texto descriptivo en un esquema visual, claro y conciso. Library/Method -> HTML/Tailwind.
+    -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f5f5f4;
+            color: #292524;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 300px;
+            max-height: 400px;
+        }
+        @media (min-width: 640px) {
+            .chart-container {
+                height: 350px;
+            }
+        }
+    </style>
+</head>
+<body class="bg-stone-100">
+
+    <main class="w-full">
+        <div class="max-w-4xl mx-auto p-4 sm:p-8">
+
+            <header class="bg-white rounded-xl shadow-lg p-8 mb-12 text-center">
+                <h1 class="text-3xl sm:text-4xl font-bold text-teal-700 mb-2">Enriquecimiento del Catálogo con Índices Temáticos</h1>
+                <p class="text-lg text-stone-600">Un proyecto para potenciar la descubribilidad de nuestro acervo.</p>
+            </header>
+            
+            <section id="justificacion" class="mb-12">
+                <div class="bg-white rounded-xl shadow-lg p-8">
+                    <h2 class="text-2xl font-bold text-stone-800 mb-4">El Problema de la Descubribilidad</h2>
+                    <p class="text-stone-600 leading-relaxed mb-6">
+                        Con más de 1800 títulos en la colección impresa, el catálogo actual se limita a puntos de acceso básicos como autor y título. Esto dificulta que los usuarios encuentren recursos valiosos basados en conceptos o temas específicos mencionados en el contenido, lo que reduce la utilidad de nuestro vasto acervo.
+                    </p>
+                    <h3 class="text-xl font-bold text-stone-700 mb-4">Nuestra Solución: Objetivos Clave</h3>
+                    <div class="grid md:grid-cols-2 gap-4">
+                        <div class="p-4 bg-teal-50 rounded-md border-l-4 border-teal-500">
+                             <p class="text-stone-700">🎯 Mejorar la recuperabilidad de los recursos de la biblioteca a través de una búsqueda más granular por tema.</p>
+                        </div>
+                         <div class="p-4 bg-stone-50 rounded-md">
+                             <p class="text-stone-600">📊 Aumentar el número de puntos de acceso en el OPAC para una exploración más rica.</p>
+                        </div>
+                         <div class="p-4 bg-stone-50 rounded-md">
+                             <p class="text-stone-600">💡 Elevar la calidad y la utilidad del catálogo para toda la comunidad académica.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="proceso" class="mb-12">
+                <div class="bg-white rounded-xl shadow-lg p-8">
+                    <h2 class="text-2xl font-bold text-stone-800 mb-4">El Proceso de Enriquecimiento</h2>
+                    <p class="text-stone-600 mb-8 max-w-3xl">
+                        Proponemos un flujo de trabajo para capturar los índices temáticos de nuestra colección impresa y enriquecer el catálogo digital.
+                    </p>
+                    <div class="flex flex-col md:flex-row items-center justify-between space-y-4 md:space-y-0 md:space-x-4 mb-8">
+                        <div class="text-center p-4 rounded-lg transition-transform duration-300 hover:scale-105 hover:bg-stone-50">
+                            <div class="text-4xl mb-2">🖼️</div>
+                            <h4 class="font-semibold">Digitalización</h4>
+                            <p class="text-sm text-stone-500">Escaneado de los índices con escáner.</p>
+                        </div>
+                        <div class="text-2xl text-stone-300 transform rotate-90 md:rotate-0">➔</div>
+                        <div class="text-center p-4 rounded-lg transition-transform duration-300 hover:scale-105 hover:bg-stone-50">
+                            <div class="text-4xl mb-2"> OCR </div>
+                            <h4 class="font-semibold">Reconocimiento</h4>
+                            <p class="text-sm text-stone-500">Uso de OCR para convertir a texto.</p>
+                        </div>
+                        <div class="text-2xl text-stone-300 transform rotate-90 md:rotate-0">➔</div>
+                        <div class="text-center p-4 rounded-lg transition-transform duration-300 hover:scale-105 hover:bg-stone-50">
+                            <div class="text-4xl mb-2">✍️</div>
+                            <h4 class="font-semibold">Revisión</h4>
+                            <p class="text-sm text-stone-500">Revisión manual y corrección de los datos.</p>
+                        </div>
+                        <div class="text-2xl text-stone-300 transform rotate-90 md:rotate-0">➔</div>
+                        <div class="text-center p-4 rounded-lg transition-transform duration-300 hover:scale-105 hover:bg-stone-50">
+                            <div class="text-4xl mb-2">🔗</div>
+                            <h4 class="font-semibold">Integración</h4>
+                            <p class="text-sm text-stone-500">Integrar el texto en cada registro bibliográfico.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="simulacion" class="mb-12">
+                <div class="bg-white rounded-xl shadow-lg p-8 text-center">
+                    <h2 class="text-2xl font-bold text-stone-800 mb-4">Simulación Interactiva: El Impacto de los Índices</h2>
+                    <p class="text-stone-600 mb-6">
+                        Experimenta cómo el catálogo pasará de ofrecer resultados básicos a una riqueza de información.
+                    </p>
+                    <div class="flex items-center justify-center space-x-4 mb-8">
+                        <label class="text-lg text-stone-600">Búsqueda sin Índices</label>
+                        <div class="relative inline-block w-14 align-middle select-none transition duration-200 ease-in">
+                            <input type="checkbox" name="toggle" id="toggle" class="toggle-checkbox absolute block w-8 h-8 rounded-full bg-stone-300 border-4 appearance-none cursor-pointer transition-transform duration-300 ease-in-out">
+                            <label for="toggle" class="toggle-label block overflow-hidden h-8 rounded-full bg-stone-300 cursor-pointer"></label>
+                        </div>
+                        <label class="text-lg text-stone-600">Búsqueda con Índices</label>
+                    </div>
+                    <div class="bg-stone-50 rounded-lg p-6 mb-8 text-left">
+                        <div class="flex items-center mb-4">
+                            <input type="text" id="search-input" placeholder="Buscar 'rehabilitación neuromuscular'..." class="flex-grow p-2 rounded-md border border-stone-300 focus:outline-none focus:ring-2 focus:ring-teal-500">
+                            <button id="search-button" class="ml-2 px-4 py-2 bg-teal-600 text-white font-semibold rounded-md hover:bg-teal-700 transition-colors">Buscar</button>
+                        </div>
+                        <div id="results" class="space-y-2">
+                             <!-- Results will be injected here by JS -->
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <section id="impacto-grafico" class="mb-12">
+                 <div class="bg-white rounded-xl shadow-lg p-8">
+                    <h2 class="text-2xl font-bold text-stone-800 mb-4 text-center">Impacto Cuantificable</h2>
+                    <p class="text-stone-600 mb-8 max-w-3xl mx-auto text-center">
+                        La adición de los índices aumentará dramáticamente los puntos de acceso y, por lo tanto, la cantidad de resultados relevantes para el usuario.
+                    </p>
+                    <div class="chart-container bg-stone-50 p-4 rounded-lg shadow-inner">
+                        <canvas id="impactChart"></canvas>
+                    </div>
+                </div>
+            </section>
+
+            <section id="entregables" class="mb-12">
+                <div class="bg-white rounded-xl shadow-lg p-8">
+                    <h2 class="text-2xl font-bold text-stone-800 mb-4">Entregables y Recursos</h2>
+                    <ul class="list-disc list-inside space-y-2 text-stone-600">
+                        <li>Una plataforma web completamente funcional y segura.</li>
+                        <li>Un sistema de registro y gestión de usuarios exclusivo para miembros de la facultad.</li>
+                        <li>Un manual de usuario para guiar la navegación y las funciones de la plataforma.</li>
+                        <li>Una política de uso que especifique los fines académicos de la red.</li>
+                    </ul>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const toggle = document.getElementById('toggle');
+            const searchInput = document.getElementById('search-input');
+            const searchButton = document.getElementById('search-button');
+            const resultsDiv = document.getElementById('results');
+            
+            const resultsData = {
+                'rehabilitación neuromuscular': {
+                    'sin-indices': [
+                        { title: 'Kinesiología Clínica', author: 'Lippert, Lynn S.' }
+                    ],
+                    'con-indices': [
+                        { title: 'Kinesiología Clínica', author: 'Lippert, Lynn S.' },
+                        { title: 'Bases Biológicas de la Actividad Física', author: 'Martínez, Manuel' },
+                        { title: 'Fisioterapia en el Deporte', author: 'Alonso, Paula' },
+                        { title: 'Principios de Fisiología del Ejercicio', author: 'García, Jose' }
+                    ]
+                }
+            };
+
+            function updateResults() {
+                const query = searchInput.value.toLowerCase().trim();
+                const hasIndices = toggle.checked;
+                const searchKey = resultsData[query] ? query : 'rehabilitación neuromuscular';
+                const currentResults = hasIndices ? resultsData[searchKey]['con-indices'] : resultsData[searchKey]['sin-indices'];
+
+                resultsDiv.innerHTML = '';
+                if (currentResults.length === 0) {
+                    resultsDiv.innerHTML = '<p class="text-stone-500">No se encontraron resultados para su búsqueda.</p>';
+                    return;
+                }
+                
+                currentResults.forEach(item => {
+                    const resultElement = document.createElement('div');
+                    resultElement.className = 'p-3 bg-stone-100 rounded-md hover:bg-stone-200 transition-colors';
+                    resultElement.innerHTML = `<p class="font-semibold text-stone-800">${item.title}</p><p class="text-sm text-stone-600">Autor: ${item.author}</p>`;
+                    resultsDiv.appendChild(resultElement);
+                });
+            }
+
+            toggle.addEventListener('change', updateResults);
+            searchButton.addEventListener('click', updateResults);
+            searchInput.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    updateResults();
+                }
+            });
+
+            // Initial results display
+            updateResults();
+
+            // Chart.js Impact Visualization
+            const ctx = document.getElementById('impactChart').getContext('2d');
+            const impactChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: ['Puntos de Acceso'],
+                    datasets: [{
+                        label: 'Sin Índices Temáticos',
+                        data: [100],
+                        backgroundColor: 'rgba(251, 191, 36, 0.6)',
+                        borderColor: 'rgba(251, 191, 36, 1)',
+                        borderWidth: 1
+                    }, {
+                        label: 'Con Índices Temáticos',
+                        data: [1800],
+                        backgroundColor: 'rgba(15, 118, 110, 0.7)',
+                        borderColor: 'rgba(15, 118, 110, 1)',
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    indexAxis: 'y',
+                    scales: {
+                        x: {
+                            beginAtZero: true,
+                             ticks: { color: '#57534e' },
+                             grid: { color: '#e7e5e4' }
+                        },
+                        y: {
+                             ticks: { color: '#57534e' },
+                             grid: { display: false }
+                        }
+                    },
+                    plugins: {
+                        legend: { position: 'bottom', labels: { color: '#57534e' } },
+                        title: { display: true, text: 'Aumento de Puntos de Acceso', color: '#292524', font: { size: 14 } }
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>

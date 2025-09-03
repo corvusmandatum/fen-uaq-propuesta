@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proyecto: Control de Cobertura Bibliográfica</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Chosen Palette: Warm Neutrals -->
+    <!-- Application Structure Plan: Se ha diseñado una SPA (Single Page Application) con navegación lateral fija para un acceso rápido a las secciones clave del proyecto. La estructura no sigue el orden del reporte original, sino que agrupa la información de forma lógica para contar una historia: 1) Presentación del problema y la solución (Justificación y Objetivos), 2) Explicación del cómo (Descripción, Proceso y Entregables), 3) Planificación (Cronograma y Recursos), y 4) Resultados esperados (Impacto). Esta estructura facilita la comprensión al guiar al usuario desde el porqué hasta el qué se logrará, utilizando elementos interactivos como un diagrama de flujo y un cronograma clicable para mejorar la retención y el engagement. -->
+    <!-- Visualization & Content Choices: 
+        - Justificación/Objetivos: Report Info -> Problema y metas del proyecto. Goal -> Informar/Persuadir. Viz -> Tarjetas y listas destacadas. Interaction -> Ninguna, foco en la claridad. Justification -> Presentación limpia y directa de la propuesta de valor. Library/Method -> HTML/Tailwind.
+        - Diagrama de Proceso: Report Info -> Descripción del flujo de trabajo. Goal -> Organizar/Explicar. Viz -> Diagrama de flujo horizontal. Interaction -> Hover para resaltar pasos. Justification -> Traduce un párrafo denso a un esquema visual fácil de digerir. Library/Method -> HTML/Tailwind.
+        - Cronograma: Report Info -> Fases y duración del proyecto. Goal -> Organizar/Planificar. Viz -> Línea de tiempo vertical interactiva. Interaction -> Clic para expandir detalles de cada fase. Justification -> Hace la planificación más explorable y menos monótona que una lista. Library/Method -> HTML/Tailwind/JS.
+        - Gráfico de Impacto: Report Info -> Beneficios del proyecto (toma de decisiones). Goal -> Comparar/Persuadir. Viz -> Gráfico de barras comparativo "Antes vs. Después". Interaction -> Animación al cargar. Justification -> Visualiza el principal beneficio (pasar de la intuición a los datos) de forma contundente. Library/Method -> Chart.js (Canvas).
+    -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f5f5f4; /* stone-100 */
+            color: #292524; /* stone-800 */
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 300px;
+            max-height: 400px;
+        }
+        @media (min-width: 640px) {
+            .chart-container {
+                height: 350px;
+            }
+        }
+        .nav-link.active {
+            background-color: #0d9488; /* teal-600 */
+            color: #ffffff;
+            font-weight: 600;
+        }
+        .timeline-item-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-in-out;
+        }
+        .timeline-item.open .timeline-item-content {
+            max-height: 500px; /* Adjust as needed */
+        }
+    </style>
+</head>
+<body class="bg-stone-100">
+
+    <div class="flex">
+        <!-- Sidebar Navigation -->
+        <aside id="sidebar" class="hidden lg:block sticky top-0 h-screen w-64 bg-white shadow-md p-4">
+            <div class="flex items-center mb-8">
+                <span class="text-2xl text-teal-600 mr-2">📚</span>
+                <h1 class="text-lg font-bold text-stone-700">Propuesta de Proyecto</h1>
+            </div>
+            <nav>
+                <ul class="space-y-2">
+                    <li><a href="#justificacion" class="nav-link block w-full text-left px-4 py-2 rounded-md text-stone-600 hover:bg-teal-50 hover:text-teal-700 transition-colors">Justificación</a></li>
+                    <li><a href="#objetivos" class="nav-link block w-full text-left px-4 py-2 rounded-md text-stone-600 hover:bg-teal-50 hover:text-teal-700 transition-colors">Objetivos</a></li>
+                    <li><a href="#proceso" class="nav-link block w-full text-left px-4 py-2 rounded-md text-stone-600 hover:bg-teal-50 hover:text-teal-700 transition-colors">El Proceso</a></li>
+                    <li><a href="#cronograma" class="nav-link block w-full text-left px-4 py-2 rounded-md text-stone-600 hover:bg-teal-50 hover:text-teal-700 transition-colors">Cronograma</a></li>
+                    <li><a href="#recursos" class="nav-link block w-full text-left px-4 py-2 rounded-md text-stone-600 hover:bg-teal-50 hover:text-teal-700 transition-colors">Recursos</a></li>
+                    <li><a href="#impacto" class="nav-link block w-full text-left px-4 py-2 rounded-md text-stone-600 hover:bg-teal-50 hover:text-teal-700 transition-colors">Impacto</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="w-full lg:w-[calc(100%-16rem)]">
+            <div class="max-w-4xl mx-auto p-4 sm:p-8">
+
+                <!-- Header -->
+                <header class="bg-white rounded-xl shadow-lg p-8 mb-12 text-center">
+                    <h1 class="text-3xl sm:text-4xl font-bold text-teal-700 mb-2">Control y Seguimiento de Cobertura Bibliográfica</h1>
+                    <p class="text-lg text-stone-600">Una propuesta para la toma de decisiones basada en datos.</p>
+                </header>
+                
+                <!-- Section: Justificación -->
+                <section id="justificacion" class="mb-12 scroll-mt-20">
+                    <div class="bg-white rounded-xl shadow-lg p-8">
+                        <h2 class="text-2xl font-bold text-stone-800 mb-4">El Desafío Actual</h2>
+                        <p class="text-stone-600 leading-relaxed">
+                            La Facultad de Enfermería, con sus programas de Fisioterapia y Ciencias del Deporte, cuenta con un currículo robusto de aproximadamente 40 asignaturas por carrera, cada una con bibliografía obligatoria. Sin embargo, la biblioteca carece de un método estructurado para verificar si los recursos requeridos están realmente disponibles para los estudiantes. Esta desconexión impide tomar decisiones informadas sobre el desarrollo de colecciones, arriesgando la pertinencia del acervo y la optimización del presupuesto.
+                        </p>
+                    </div>
+                </section>
+
+                <!-- Section: Objetivos -->
+                <section id="objetivos" class="mb-12 scroll-mt-20">
+                     <div class="bg-white rounded-xl shadow-lg p-8">
+                        <h2 class="text-2xl font-bold text-stone-800 mb-6">Nuestra Solución: Objetivos Claros</h2>
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div class="bg-teal-50 p-6 rounded-lg border-l-4 border-teal-500">
+                                <h3 class="font-bold text-teal-800 mb-2">🎯 Objetivo Principal</h3>
+                                <p class="text-stone-700">Establecer un enlace sistemático y permanente entre las bibliografías curriculares y el catálogo de la biblioteca.</p>
+                            </div>
+                            <div class="bg-stone-50 p-6 rounded-lg">
+                                <h3 class="font-semibold text-stone-800 mb-2">📊 Medir Cobertura</h3>
+                                <p class="text-stone-600">Cuantificar el porcentaje de cobertura bibliográfica por asignatura, semestre y programa educativo.</p>
+                            </div>
+                            <div class="bg-stone-50 p-6 rounded-lg">
+                                <h3 class="font-semibold text-stone-800 mb-2">💡 Priorizar Adquisiciones</h3>
+                                <p class="text-stone-600">Generar estadísticas precisas para guiar la inversión en el desarrollo de la colección de forma inteligente.</p>
+                            </div>
+                            <div class="bg-stone-50 p-6 rounded-lg">
+                                <h3 class="font-semibold text-stone-800 mb-2">🤝 Fomentar Colaboración</h3>
+                                <p class="text-stone-600">Facilitar la comunicación con el personal docente para asegurar la pertinencia y actualización de los recursos.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Section: El Proceso -->
+                <section id="proceso" class="mb-12 scroll-mt-20">
+                    <div class="bg-white rounded-xl shadow-lg p-8">
+                        <h2 class="text-2xl font-bold text-stone-800 mb-4">¿Cómo lo Haremos?</h2>
+                        <p class="text-stone-600 mb-8 max-w-3xl">
+                            Proponemos un flujo de trabajo claro y sistemático. Esta sección detalla el proceso paso a paso, desde la recopilación de datos inicial hasta la generación de informes visuales, y define los productos concretos que se obtendrán.
+                        </p>
+                        
+                        <div class="flex flex-col md:flex-row items-center justify-between space-y-4 md:space-y-0 md:space-x-4 mb-8">
+                            <div class="text-center p-4 rounded-lg transition-transform duration-300 hover:scale-105 hover:bg-stone-50">
+                                <div class="text-4xl mb-2">📋</div>
+                                <h4 class="font-semibold">Recopilación</h4>
+                                <p class="text-sm text-stone-500">Extraer bibliografías de formatos institucionales.</p>
+                            </div>
+                             <div class="text-2xl text-stone-300 transform rotate-90 md:rotate-0">➔</div>
+                             <div class="text-center p-4 rounded-lg transition-transform duration-300 hover:scale-105 hover:bg-stone-50">
+                                <div class="text-4xl mb-2">🔍</div>
+                                <h4 class="font-semibold">Cotejo</h4>
+                                <p class="text-sm text-stone-500">Comparar listas con el catálogo (OPAC).</p>
+                            </div>
+                            <div class="text-2xl text-stone-300 transform rotate-90 md:rotate-0">➔</div>
+                            <div class="text-center p-4 rounded-lg transition-transform duration-300 hover:scale-105 hover:bg-stone-50">
+                                <div class="text-4xl mb-2">🗃️</div>
+                                <h4 class="font-semibold">Registro</h4>
+                                <p class="text-sm text-stone-500">Almacenar datos en una base de datos centralizada.</p>
+                            </div>
+                            <div class="text-2xl text-stone-300 transform rotate-90 md:rotate-0">➔</div>
+                            <div class="text-center p-4 rounded-lg transition-transform duration-300 hover:scale-105 hover:bg-stone-50">
+                                <div class="text-4xl mb-2">📈</div>
+                                <h4 class="font-semibold">Análisis</h4>
+                                <p class="text-sm text-stone-500">Generar reportes y visualizaciones.</p>
+                            </div>
+                        </div>
+
+                        <h3 class="text-xl font-bold text-stone-700 mt-10 mb-4">Entregables Clave</h3>
+                        <ul class="list-disc list-inside space-y-2 text-stone-600">
+                           <li>Un proceso documentado y estandarizado para vincular bibliografías al catálogo.</li>
+                           <li>Una base de datos de cobertura accesible para consultas y reportes continuos.</li>
+                           <li>Reportes estadísticos detallados sobre el porcentaje de cobertura.</li>
+                           <li>Gráficas y visualizaciones interactivas de las áreas prioritarias para inversión.</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <!-- Section: Cronograma -->
+                <section id="cronograma" class="mb-12 scroll-mt-20">
+                    <div class="bg-white rounded-xl shadow-lg p-8">
+                        <h2 class="text-2xl font-bold text-stone-800 mb-8">Cronograma Interactivo del Proyecto</h2>
+                        <div class="relative border-l-2 border-teal-200">
+                            <!-- Fase 1 -->
+                            <div class="timeline-item mb-8 ml-6 cursor-pointer">
+                                <span class="absolute flex items-center justify-center w-6 h-6 bg-teal-200 rounded-full -left-3 ring-8 ring-white">1</span>
+                                <div class="p-4 bg-stone-50 rounded-lg border border-stone-200 shadow-sm">
+                                    <div class="flex justify-between items-center">
+                                        <h3 class="text-lg font-semibold text-stone-900">Fase 1: Planificación y Diseño</h3>
+                                        <time class="text-sm font-normal text-stone-500">Duración: 1 mes</time>
+                                    </div>
+                                    <div class="timeline-item-content">
+                                        <p class="text-base font-normal text-stone-500 mt-2">Definición detallada del proceso, diseño de la estructura de la base de datos y selección de herramientas tecnológicas.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Fase 2 -->
+                            <div class="timeline-item mb-8 ml-6 cursor-pointer">
+                                <span class="absolute flex items-center justify-center w-6 h-6 bg-teal-200 rounded-full -left-3 ring-8 ring-white">2</span>
+                                <div class="p-4 bg-stone-50 rounded-lg border border-stone-200 shadow-sm">
+                                    <div class="flex justify-between items-center">
+                                        <h3 class="text-lg font-semibold text-stone-900">Fase 2: Recopilación y Cotejo</h3>
+                                        <time class="text-sm font-normal text-stone-500">Duración: 3 meses</time>
+                                    </div>
+                                    <div class="timeline-item-content">
+                                        <p class="text-base font-normal text-stone-500 mt-2">Trabajo intensivo de captura de datos desde los formatos institucionales y cotejo sistemático contra el catálogo de la biblioteca.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Fase 3 -->
+                            <div class="timeline-item ml-6 cursor-pointer">
+                                <span class="absolute flex items-center justify-center w-6 h-6 bg-teal-200 rounded-full -left-3 ring-8 ring-white">3</span>
+                                <div class="p-4 bg-stone-50 rounded-lg border border-stone-200 shadow-sm">
+                                    <div class="flex justify-between items-center">
+                                        <h3 class="text-lg font-semibold text-stone-900">Fase 3: Análisis y Visualización</h3>
+                                        <time class="text-sm font-normal text-stone-500">Duración: 1 mes</time>
+                                    </div>
+                                    <div class="timeline-item-content">
+                                        <p class="text-base font-normal text-stone-500 mt-2">Análisis de los datos recopilados, generación de los reportes estadísticos y creación de los tableros de visualización para la toma de decisiones.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                
+                <!-- Section: Recursos -->
+                 <section id="recursos" class="mb-12 scroll-mt-20">
+                    <div class="bg-white rounded-xl shadow-lg p-8">
+                        <h2 class="text-2xl font-bold text-stone-800 mb-6">Recursos Necesarios</h2>
+                        <div class="grid sm:grid-cols-3 gap-6 text-center">
+                            <div class="p-6 bg-stone-50 rounded-lg">
+                                <div class="text-4xl mb-3">🧑‍💼</div>
+                                <h3 class="font-semibold text-stone-800">Personal</h3>
+                                <p class="text-stone-600 text-sm">Personal bibliotecario para la captura y cotejo de datos.</p>
+                            </div>
+                            <div class="p-6 bg-stone-50 rounded-lg">
+                                <div class="text-4xl mb-3">💻</div>
+                                <h3 class="font-semibold text-stone-800">Tecnológicos</h3>
+                                <p class="text-stone-600 text-sm">Acceso al OPAC, Google Sheets y base de datos relacional (Postgres).</p>
+                            </div>
+                            <div class="p-6 bg-stone-50 rounded-lg">
+                                <div class="text-4xl mb-3">📄</div>
+                                <h3 class="font-semibold text-stone-800">Materiales</h3>
+                                <p class="text-stone-600 text-sm">Formatos institucionales de las asignaturas.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Section: Impacto -->
+                <section id="impacto" class="scroll-mt-20">
+                    <div class="bg-teal-700 text-white rounded-xl shadow-lg p-8">
+                        <h2 class="text-2xl font-bold mb-4 text-center">El Impacto: De la Intuición a los Datos</h2>
+                        <p class="text-teal-100 max-w-3xl mx-auto text-center mb-8">Este proyecto transformará fundamentalmente cómo la biblioteca desarrolla sus colecciones, asegurando que cada recurso adquirido responda a una necesidad curricular real y medible.</p>
+                        
+                        <div class="grid md:grid-cols-2 gap-8 items-center">
+                            <div>
+                                <h3 class="text-xl font-semibold mb-4 text-teal-100">Beneficios Clave</h3>
+                                <ul class="space-y-3">
+                                    <li class="flex items-start"><span class="text-amber-400 mr-3 mt-1">✓</span> Planificación de colecciones basada en evidencia.</li>
+                                    <li class="flex items-start"><span class="text-amber-400 mr-3 mt-1">✓</span> Aumento medible en la relevancia del acervo.</li>
+                                    <li class="flex items-start"><span class="text-amber-400 mr-3 mt-1">✓</span> Optimización del presupuesto y recursos financieros.</li>
+                                    <li class="flex items-start"><span class="text-amber-400 mr-3 mt-1">✓</span> Fortalecimiento de la relación estratégica con el personal docente.</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <div class="chart-container bg-white p-4 rounded-lg shadow-inner">
+                                    <canvas id="impactChart"></canvas>
+                                </div>
+                                <p class="text-xs text-center text-teal-200 mt-2">Visualización conceptual del cambio en la toma de decisiones.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Chart.js Impact Visualization
+            const ctx = document.getElementById('impactChart').getContext('2d');
+            const impactChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: ['Toma de Decisiones de Compra'],
+                    datasets: [{
+                        label: 'Antes (Basado en intuición)',
+                        data: [80],
+                        backgroundColor: 'rgba(251, 191, 36, 0.6)', // amber-400
+                        borderColor: 'rgba(251, 191, 36, 1)',
+                        borderWidth: 1
+                    }, {
+                        label: 'Después (Basado en datos)',
+                        data: [95],
+                        backgroundColor: 'rgba(15, 118, 110, 0.7)', // teal-700
+                        borderColor: 'rgba(15, 118, 110, 1)',
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    indexAxis: 'y',
+                    scales: {
+                        x: {
+                            beginAtZero: true,
+                            max: 100,
+                             ticks: {
+                                color: '#57534e' // stone-600
+                            },
+                             grid: {
+                                color: '#e7e5e4' // stone-200
+                            }
+                        },
+                        y: {
+                             ticks: {
+                                color: '#57534e' // stone-600
+                            },
+                             grid: {
+                                display: false
+                            }
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            position: 'bottom',
+                            labels: {
+                                color: '#57534e' // stone-600
+                            }
+                        },
+                        title: {
+                            display: true,
+                            text: 'Fundamento para el Desarrollo de Colecciones',
+                            color: '#292524', // stone-800,
+                            font: {
+                                size: 14
+                            }
+                        }
+                    }
+                }
+            });
+
+            // Interactive Timeline
+            const timelineItems = document.querySelectorAll('.timeline-item');
+            timelineItems.forEach(item => {
+                item.addEventListener('click', () => {
+                    item.classList.toggle('open');
+                });
+            });
+
+            // Active Nav Link on Scroll
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('.nav-link');
+            
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.5
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        navLinks.forEach(link => {
+                            link.classList.remove('active');
+                            if (link.getAttribute('href').substring(1) === entry.target.id) {
+                                link.classList.add('active');
+                            }
+                        });
+                    }
+                });
+            }, observerOptions);
+
+            sections.forEach(section => {
+                observer.observe(section);
+            });
+        });
+    </script>
+
+</body>
+</html>
