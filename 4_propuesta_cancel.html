@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proyecto 4: Video de cancelería</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="bg-stone-100">
+
+    <div class="flex">
+        <!-- Sidebar Navigation -->
+        <aside id="sidebar" class="hidden lg:block sticky top-0 h-screen w-64 bg-white shadow-md p-4">
+            <div class="flex items-center mb-8">
+                <span class="text-2xl text-teal-600 mr-2">💬</span>
+                <h1 class="text-lg font-bold text-stone-700">Video del modelo de cancel</h1>
+            </div>
+            <nav>
+                <ul class="space-y-2">
+                    <li><a href="#justificacion"
+                            class="nav-link block w-full text-left px-4 py-2 rounded-md text-stone-600 hover:bg-teal-50 hover:text-teal-700 transition-colors">Justificación</a>
+                    </li>
+                    <li><a href="#objetivos"
+                            class="nav-link block w-full text-left px-4 py-2 rounded-md text-stone-600 hover:bg-teal-50 hover:text-teal-700 transition-colors">Objetivos</a>
+                    </li>
+                    <li><a href="#vplayer"
+                            class="nav-link block w-full text-left px-4 py-2 rounded-md text-stone-600 hover:bg-teal-50 hover:text-teal-700 transition-colors">Video</a>
+                    </li>
+                    <li><a href="#impacto"
+                            class="nav-link block w-full text-left px-4 py-2 rounded-md text-stone-600 hover:bg-teal-50 hover:text-teal-700 transition-colors">Impacto</a>
+                    </li>
+                    <li><a href="/index.html" class="volver block w-full text-left px-4 py-2 rounded-md">⬅️ Volver</a>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="w-full lg:w-[calc(100%-16rem)]">
+            <div class="max-w-4xl mx-auto p-4 sm:p-8">
+
+                <!-- Header -->
+                <header class="bg-white rounded-xl shadow-lg p-8 mb-12 text-center">
+                    <h1>Proyecto 4</h1>
+                    <h1 class="text-3xl sm:text-4xl font-bold text-teal-700 mb-2">Modificación para la colocaciónd de
+                        una cancelería para la estantería
+                    </h1>
+                    <p class="text-lg text-stone-600">Mejora de los espacios físicos de las bibliotecas.</p>
+                </header>
+
+                <!-- Section: Justificación -->
+                <section id="justificacion" class="mb-12 scroll-mt-20">
+                    <div class="bg-white rounded-xl shadow-lg p-8">
+                        <h2 class="text-2xl font-bold text-stone-800 mb-4">Desafío concreto</h2>
+                        <p class="text-stone-600 leading-relaxed"> Mediante la colocación de una cancelería en la
+                            estantería
+                            de la biblioteca, se busca mejorar la organización y presentación de los libros, facilitando
+                            el acceso y la visibilidad de los mismos para los usuarios. Esta modificación no solo
+                            optimiza el espacio disponible, sino que también contribuye a crear un ambiente más
+                            acogedor y funcional, promoviendo así un mayor uso y disfrute de los recursos bibliográficos
+                            por parte de la comunidad académica.
+                        </p>
+                    </div>
+                </section>
+
+                <!-- Section: Objetivos -->
+                <section id="objetivos" class="mb-12 scroll-mt-20">
+                    <div class="bg-white rounded-xl shadow-lg p-8">
+                        <h2 class="text-2xl font-bold text-stone-800 mb-6">Solución y Objetivos Claros</h2>
+                        <p class="text-stone-600 mb-8 max-w-3xl">
+                            La propuesta de instalar una cancelería en la estantería de la biblioteca tiene como
+                            objetivo
+                            principal mejorar la seguridad y protección de los recursos bibliográficos, evitando daños
+                            accidentales y facilitando su conservación a largo plazo. Además, esta modificación busca
+                            optimizar el espacio disponible, permitiendo una mejor organización y presentación de los
+                            libros, lo que a su vez mejora la experiencia de los usuarios al facilitar el acceso y la
+                            visibilidad de los mismos. En conjunto, estos objetivos contribuyen a crear un entorno más
+                            funcional y acogedor, promoviendo un mayor uso y disfrute de los recursos bibliográficos por
+                            parte de la comunidad académica.
+                        </p>
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div class="bg-teal-50 p-6 rounded-lg border-l-4 border-teal-500">
+                                <h3 class="font-bold text-teal-800 mb-2">🎯 Objetivo Principal</h3>
+                                <p class="text-stone-700">Garantizar la preservación del acervo bibliográfico y
+                                    disminuir
+                                    significativamente el riesgo de daños y pérdidas.
+                                </p>
+                            </div>
+                            <div class="bg-teal-50 p-6 rounded-lg border-l-4 border-teal-500">
+                                <h3 class="font-semibold text-stone-800 mb-2">📊 Cambio de enfoque</h3>
+                                <p class="text-stone-600">Buscar dirigirnos con un enfoque hacia lo digital teniendo
+                                    seguro lo físico.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Section: video -->
+                <section id="vplayer" class="mb-12 scroll-mt-20">
+                    <div class="bg-white rounded-xl shadow-lg p-8">
+                        <h2 class="text-2xl font-bold text-stone-800 mb-6">Modelo de cancelería</h2>
+                        <p class="text-stone-600 mb-8 max-w-3xl">
+                            Imágenes y video del modelo digital que se propone para la cancelería que se 
+                            instalará en la biblioteca.
+                        </p>
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div class="bg-teal-50 p-6 rounded-lg border-l-4 border-teal-500">
+                                <h3 class="font-semibold text-stone-800 mb-2">Vista desde arriba</h3>
+                                <img src="cap1.png" alt="">
+                            </div>
+                            <div class="bg-teal-50 p-6 rounded-lg border-l-4 border-teal-500">
+                                <h3 class="font-semibold text-stone-800 mb-2">Vista desde piso</h3>
+                                <img src="cap2.png" alt="">
+                            </div>
+                            <div class="bg-teal-50 p-6 rounded-lg border-l-4 border-teal-500">
+                                <h3 class="font-semibold text-stone-800 mb-2">Video del modelo</h3>
+                                <video src="video_modelo.mp4" controls></video>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+
+                <!-- Section: Impacto -->
+                <section id="impacto" class="scroll-mt-20">
+                    <div class="bg-teal-700 text-white rounded-xl shadow-lg p-8">
+                        <h2 class="text-2xl font-bold mb-4 text-center">Resultados de impacto medible</h2>
+                        <p class="text-teal-100 max-w-3xl mx-auto text-center mb-8">
+                            Reducción notable en los incidentes de daños y pérdidas de libros, lo que indicará una
+                            mejora
+                            sustancial en la preservación del acervo bibliográfico. Además, la organización y
+                            presentación
+                            de los recursos mejorará considerablemente, facilitando el acceso para
+                            los usuarios. Los usuarios valorarán el entorno más seguro y funcional.
+                        </p>
+
+                        <div>
+                            <h3 class="text-xl font-semibold mb-4 text-teal-100">Claves para Proyectos Emergentes</h3>
+                            <ul class="space-y-3">
+                                <li class="flex items-start"><span class="text-amber-400 mr-3 mt-1">✓</span>
+                                    Fumigación más económica y rápida</li>
+                                <li class="flex items-start"><span class="text-amber-400 mr-3 mt-1">✓</span>
+                                    Prescindir del arco de seguridad de alto costo</li>
+                                <li class="flex items-start"><span class="text-amber-400 mr-3 mt-1">✓</span>
+                                    Seguridad del cumplimiento para el cuadado del activo fijo de la UAQ</li>
+                                <li class="flex items-start"><span class="text-amber-400 mr-3 mt-1">✓</span>
+                                    Permite la flexibilidad en las funciones del personal de las bibliotecas para
+                                    llevar a cabo actividades alineadas con la estrategia de integración de nuevas
+                                    tecnologías</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <button
+                class="bg-teal-600 text-white font-semibold py-2 px-4 rounded-lg shadow-md hover:bg-teal-700 transition duration-200"><a
+                    href="/index.html">Volver</a></button>
+        </main>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
