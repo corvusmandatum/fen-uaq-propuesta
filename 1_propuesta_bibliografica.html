@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proyecto 1: Control de Cobertura Bibliográfica</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="bg-stone-100">
+
+    <div class="flex">
+        <!-- Sidebar Navigation -->
+        <aside id="sidebar" class="hidden lg:block sticky top-0 h-screen w-64 bg-white shadow-md p-4">
+            <div class="flex items-center mb-8">
+                <span class="text-2xl text-teal-600 mr-2">📚</span>
+                <h1 class="text-lg font-bold text-stone-700">Sistema de Cobertura Bibliográfica</h1>
+            </div>
+            <nav>
+                <ul class="space-y-2">
+                    <li><a href="#justificacion"
+                            class="nav-link block w-full text-left px-4 py-2 rounded-md text-stone-600 hover:bg-teal-50 hover:text-teal-700 transition-colors">Justificación</a>
+                    </li>
+                    <li><a href="#objetivos"
+                            class="nav-link block w-full text-left px-4 py-2 rounded-md text-stone-600 hover:bg-teal-50 hover:text-teal-700 transition-colors">Objetivos</a>
+                    </li>
+                    <li><a href="#proceso"
+                            class="nav-link block w-full text-left px-4 py-2 rounded-md text-stone-600 hover:bg-teal-50 hover:text-teal-700 transition-colors">Proceso</a>
+                    </li>
+                    <li><a href="#cronograma"
+                            class="nav-link block w-full text-left px-4 py-2 rounded-md text-stone-600 hover:bg-teal-50 hover:text-teal-700 transition-colors">Cronograma</a>
+                    </li>
+                    <li><a href="#recursos"
+                            class="nav-link block w-full text-left px-4 py-2 rounded-md text-stone-600 hover:bg-teal-50 hover:text-teal-700 transition-colors">Recursos</a>
+                    </li>
+                    <li><a href="#impacto"
+                            class="nav-link block w-full text-left px-4 py-2 rounded-md text-stone-600 hover:bg-teal-50 hover:text-teal-700 transition-colors">Impacto</a>
+                    </li>
+                    <li><a href="/index.html" class="volver block w-full text-left px-4 py-2 rounded-md">⬅️ Volver</a>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="w-full lg:w-[calc(100%-16rem)]">
+            <div class="max-w-4xl mx-auto p-4 sm:p-8">
+
+                <!-- Header -->
+                <header class="bg-white rounded-xl shadow-lg p-8 mb-12 text-center">
+                    <h1>Proyecto 1</h1>
+                    <h1 class="text-3xl sm:text-4xl font-bold text-teal-700 mb-2">Control y Seguimiento de Cobertura
+                        Bibliográfica</h1>
+                    <p class="text-lg text-stone-600">Una propuesta para lograr un enlace bibliográfico.</p>
+                </header>
+
+                <!-- Section: Justificación -->
+                <section id="justificacion" class="mb-12 scroll-mt-20">
+                    <div class="bg-white rounded-xl shadow-lg p-8">
+                        <h2 class="text-2xl font-bold text-stone-800 mb-4">Desafío concreto</h2>
+                        <p class="text-stone-600 leading-relaxed">
+                            La Facultad de Enfermería, con sus programas de estudio, cuenta con un amplio mapa
+                            curricular de más de 40 asignaturas por carrera, cada una con bibliografía
+                            obligatoria y complementaria. Sin embargo, la biblioteca carece de un método
+                            estructurado para verificar si los recursos requeridos están realmente disponibles
+                            para los estudiantes. Esta desconexión impide tomar decisiones informadas sobre el
+                            desarrollo de colecciones, arriesgando la pertinencia del acervo y
+                            la optimización del presupuesto.
+                        </p>
+                    </div>
+                </section>
+
+                <!-- Section: Objetivos -->
+                <section id="objetivos" class="mb-12 scroll-mt-20">
+                    <div class="bg-white rounded-xl shadow-lg p-8">
+                        <h2 class="text-2xl font-bold text-stone-800 mb-6">Solución y Objetivos Claros</h2>
+                        <p class="text-stone-600 mb-8 max-w-3xl">
+                            Proponemos implementar un sistema de control y seguimiento de la cobertura
+                            bibliográfica que permita vincular las bibliografías curriculares con el
+                            catálogo de la biblioteca. Este sistema proporcionará datos precisos para
+                            medir la cobertura, identificar brechas y priorizar adquisiciones,
+                            asegurando que la colección responda efectivamente a las necesidades académicas.
+                        </p>
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div class="bg-teal-50 p-6 rounded-lg border-l-4 border-teal-500">
+                                <h3 class="font-bold text-teal-800 mb-2">🎯 Objetivo Principal</h3>
+                                <p class="text-stone-700">Establecer un enlace sistemático y permanente
+                                    entre las bibliografías curriculares y el catálogo de la biblioteca.</p>
+                            </div>
+                            <div class="bg-teal-50 p-6 rounded-lg border-l-4 border-teal-500">
+                                <h3 class="font-semibold text-stone-800 mb-2">📊 Medir Cobertura</h3>
+                                <p class="text-stone-600">Cuantificar el porcentaje de cobertura bibliográfica
+                                    por asignatura, semestre y programa educativo.</p>
+                            </div>
+                            <div class="bg-teal-50 p-6 rounded-lg border-l-4 border-teal-500">
+                                <h3 class="font-semibold text-stone-800 mb-2">💡 Priorizar Adquisiciones</h3>
+                                <p class="text-stone-600">Generar estadísticas precisas para guiar la inversión
+                                    en el desarrollo de la colección de forma inteligente.</p>
+                            </div>
+                            <div class="bg-teal-50 p-6 rounded-lg border-l-4 border-teal-500">
+                                <h3 class="font-semibold text-stone-800 mb-2">🤝 Fomentar Colaboración</h3>
+                                <p class="text-stone-600">Facilitar la comunicación con el personal docente
+                                    para asegurar la pertinencia y actualización de los recursos.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Section: El Proceso -->
+                <section id="proceso" class="mb-12 scroll-mt-20">
+                    <div class="bg-white rounded-xl shadow-lg p-8">
+                        <h2 class="text-2xl font-bold text-stone-800 mb-4">Acciones para lograrlo</h2>
+                        <p class="text-stone-600 mb-8 max-w-3xl">
+                            Propongo un flujo de trabajo claro y sistemático. Esta sección detalla el
+                            proceso paso a paso, desde la recopilación de datos inicial hasta la generación
+                            de informes visuales, y define los productos concretos que se obtendrán, por ahora
+                            considero desarrollarlo de manera individual pero si se consolida la propuesta de la
+                            creación de la Coordinación de Bibliotecas FEN, se podrá abordar de manera más integral
+                            contando con el apoyo del personal de bibliotecas. Lo que haría que se adelanten
+                            las fechas de entrega que más adelante le menciono en el cronograma.
+                        </p>
+
+                        <div
+                            class="flex flex-col md:flex-row items-center justify-between space-y-4 md:space-y-0 md:space-x-4 mb-8">
+                            <div
+                                class="text-center p-4 rounded-lg transition-transform duration-300 hover:scale-105 hover:bg-stone-50">
+                                <div class="text-4xl mb-2">📋</div>
+                                <h4 class="font-semibold">Recopilación</h4>
+                                <p class="text-sm text-stone-500">Extraer bibliografías de formatos institucionales.</p>
+                            </div>
+                            <div class="text-2xl text-stone-300 transform rotate-90 md:rotate-0">➔</div>
+                            <div
+                                class="text-center p-4 rounded-lg transition-transform duration-300 hover:scale-105 hover:bg-stone-50">
+                                <div class="text-4xl mb-2">🔍</div>
+                                <h4 class="font-semibold">Cotejo</h4>
+                                <p class="text-sm text-stone-500">Comparar listas con el catálogo (OPAC).</p>
+                            </div>
+                            <div class="text-2xl text-stone-300 transform rotate-90 md:rotate-0">➔</div>
+                            <div
+                                class="text-center p-4 rounded-lg transition-transform duration-300 hover:scale-105 hover:bg-stone-50">
+                                <div class="text-4xl mb-2">🗃️</div>
+                                <h4 class="font-semibold">Registro</h4>
+                                <p class="text-sm text-stone-500">Almacenar datos en una base de datos centralizada.</p>
+                            </div>
+                            <div class="text-2xl text-stone-300 transform rotate-90 md:rotate-0">➔</div>
+                            <div
+                                class="text-center p-4 rounded-lg transition-transform duration-300 hover:scale-105 hover:bg-stone-50">
+                                <div class="text-4xl mb-2">📈</div>
+                                <h4 class="font-semibold">Análisis</h4>
+                                <p class="text-sm text-stone-500">Generar reportes y visualizaciones.</p>
+                            </div>
+                        </div>
+
+                        <h3 class="text-xl font-bold text-stone-700 mt-10 mb-4">Entregables Clave</h3>
+                        <ul class="list-disc list-inside space-y-2 text-stone-600">
+                            <li>Un proceso documentado y estandarizado para vincular bibliografías al catálogo.</li>
+                            <li>Una base de datos de cobertura accesible para consultas y reportes continuos.</li>
+                            <li>Reportes estadísticos detallados sobre el porcentaje de cobertura.</li>
+                            <li>Gráficas y visualizaciones interactivas de las áreas prioritarias para inversión.</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <!-- Section: Cronograma -->
+                <section id="cronograma" class="mb-12 scroll-mt-20">
+                    <div class="bg-white rounded-xl shadow-lg p-8">
+                        <h2 class="text-2xl font-bold text-stone-800 mb-8">Cronograma del Proyecto</h2>
+                        <div class="relative border-l-2 border-teal-200">
+                            <!-- Fase 1 -->
+                            <div class="timeline-item mb-8 ml-6 cursor-pointer">
+                                <span
+                                    class="absolute flex items-center justify-center w-6 h-6 bg-teal-200 rounded-full -left-3 ring-8 ring-white">1</span>
+                                <div class="p-4 bg-stone-50 rounded-lg border border-stone-200 shadow-sm">
+                                    <div class="flex justify-between items-center">
+                                        <h3 class="text-lg font-semibold text-stone-900">Fase 1: Planificación y Diseño
+                                        </h3>
+                                        <time class="text-sm font-normal text-stone-500">Duración: 1 mes</time>
+                                    </div>
+                                    <div>
+                                        <p class="text-base font-normal text-stone-500 mt-2">Definición detallada del
+                                            proceso, diseño de la estructura de la base de datos y selección de
+                                            herramientas tecnológicas.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Fase 2 -->
+                            <div class="timeline-item mb-8 ml-6 cursor-pointer">
+                                <span
+                                    class="absolute flex items-center justify-center w-6 h-6 bg-teal-200 rounded-full -left-3 ring-8 ring-white">2</span>
+                                <div class="p-4 bg-stone-50 rounded-lg border border-stone-200 shadow-sm">
+                                    <div class="flex justify-between items-center">
+                                        <h3 class="text-lg font-semibold text-stone-900">Fase 2: Recopilación y Cotejo
+                                        </h3>
+                                        <time class="text-sm font-normal text-stone-500">Duración: 3 meses</time>
+                                    </div>
+                                    <div>
+                                        <p class="text-base font-normal text-stone-500 mt-2">Trabajo intensivo de
+                                            captura de datos desde los formatos institucionales y cotejo sistemático
+                                            contra el catálogo de la biblioteca.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Fase 3 -->
+                            <div class="timeline-item ml-6 cursor-pointer">
+                                <span
+                                    class="absolute flex items-center justify-center w-6 h-6 bg-teal-200 rounded-full -left-3 ring-8 ring-white">3</span>
+                                <div class="p-4 bg-stone-50 rounded-lg border border-stone-200 shadow-sm">
+                                    <div class="flex justify-between items-center">
+                                        <h3 class="text-lg font-semibold text-stone-900">Fase 3: Análisis y
+                                            Visualización</h3>
+                                        <time class="text-sm font-normal text-stone-500">Duración: 1 mes</time>
+                                    </div>
+                                    <div>
+                                        <p class="text-base font-normal text-stone-500 mt-2">Análisis de los datos
+                                            recopilados, generación de los reportes estadísticos y creación de los
+                                            tableros de visualización para la toma de decisiones.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Section: Recursos -->
+                <section id="recursos" class="mb-12 scroll-mt-20">
+                    <div class="bg-white rounded-xl shadow-lg p-8">
+                        <h2 class="text-2xl font-bold text-stone-800 mb-6">Recursos Necesarios</h2>
+                        <div class="grid sm:grid-cols-2 gap-6 text-center">
+                            <div class="p-6 bg-stone-50 rounded-lg">
+                                <div class="text-4xl mb-3">🧑‍💼</div>
+                                <h3 class="font-semibold text-stone-800">Personal</h3>
+                                <p class="text-stone-600 text-sm">Personal bibliotecario para la captura y cotejo de
+                                    datos.
+                                    David y si se pueden sumar Carmen, Jazmín e Ivon, mejor.
+                                </p>
+                            </div>
+                            <div class="p-6 bg-stone-50 rounded-lg">
+                                <div class="text-4xl mb-3">💻</div>
+                                <h3 class="font-semibold text-stone-800">Tecnológicos</h3>
+                                <p class="text-stone-600 text-sm">Acceso al OPAC, Sistema de enlace (lo realizo yo),
+                                    Google Sheets y base de datos relacional (Postgres).</p>
+                            </div>
+                            <div class="p-6 bg-stone-50 rounded-lg">
+                                <div class="text-4xl mb-3">📄</div>
+                                <h3 class="font-semibold text-stone-800">Materiales</h3>
+                                <p class="text-stone-600 text-sm">Formatos institucionales de las asignaturas.(Pedir a
+                                    cada Coordinador)</p>
+                            </div>
+                            <div class="p-6 bg-stone-50 rounded-lg">
+                                <div class="text-4xl mb-3">💰</div>
+                                <h3 class="font-semibold text-stone-800">Económicos</h3>
+                                <p class="text-stone-600 text-sm">$ 0.00.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Section: Impacto -->
+                <section id="impacto" class="scroll-mt-20">
+                    <div class="bg-teal-700 text-white rounded-xl shadow-lg p-8">
+                        <h2 class="text-2xl font-bold mb-4 text-center">Resultados de impacto medible</h2>
+                        <p class="text-teal-100 max-w-3xl mx-auto text-center mb-8">Este proyecto transformará
+                            fundamentalmente
+                            cómo la biblioteca desarrolla sus colecciones, asegurando que cada recurso adquirido
+                            responda
+                            a una necesidad curricular real y medible.</p>
+
+                        <div>
+                            <h3 class="text-xl font-semibold mb-4 text-teal-100">Claves para Proyectos Emergentes</h3>
+                            <ul class="space-y-3">
+                                <li class="flex items-start"><span class="text-amber-400 mr-3 mt-1">✓</span> Programar
+                                    una plantilla automatizada para formatos oficiales con múltiples aplicaciones.</li>
+                                <li class="flex items-start"><span class="text-amber-400 mr-3 mt-1">✓</span> Reacción
+                                    rápida y oportuna de las bibliotecas ante cambios y solicitudes de información.</li>
+                                <li class="flex items-start"><span class="text-amber-400 mr-3 mt-1">✓</span> Captura de
+                                    datos en tiempo real con claridad y comodidad. Normalización de datos.</li>
+                                <li class="flex items-start"><span class="text-amber-400 mr-3 mt-1">✓</span>
+                                    Recopilación de ideas innovadoras del personal docente.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <button
+                class="bg-teal-600 text-white font-semibold py-2 px-4 rounded-lg shadow-md hover:bg-teal-700 transition duration-200"><a
+                    href="/index.html">Volver</a></button>
+        </main>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>

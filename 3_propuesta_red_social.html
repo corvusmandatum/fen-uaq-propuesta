@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proyecto 2: Enriquecimiento del Catálogo</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="bg-stone-100">
+
+    <div class="flex">
+        <!-- Sidebar Navigation -->
+        <aside id="sidebar" class="hidden lg:block sticky top-0 h-screen w-64 bg-white shadow-md p-4">
+            <div class="flex items-center mb-8">
+                <span class="text-2xl text-teal-600 mr-2">💬</span>
+                <h1 class="text-lg font-bold text-stone-700">Red Social FEN UAQ</h1>
+            </div>
+            <nav>
+                <ul class="space-y-2">
+                    <li><a href="#justificacion"
+                            class="nav-link block w-full text-left px-4 py-2 rounded-md text-stone-600 hover:bg-teal-50 hover:text-teal-700 transition-colors">Justificación</a>
+                    </li>
+                    <li><a href="#objetivos"
+                            class="nav-link block w-full text-left px-4 py-2 rounded-md text-stone-600 hover:bg-teal-50 hover:text-teal-700 transition-colors">Objetivos</a>
+                    </li>
+                    <li><a href="#proceso"
+                            class="nav-link block w-full text-left px-4 py-2 rounded-md text-stone-600 hover:bg-teal-50 hover:text-teal-700 transition-colors">Proceso</a>
+                    </li>
+                    <li><a href="#cronograma"
+                            class="nav-link block w-full text-left px-4 py-2 rounded-md text-stone-600 hover:bg-teal-50 hover:text-teal-700 transition-colors">Cronograma</a>
+                    </li>
+                    <li><a href="#recursos"
+                            class="nav-link block w-full text-left px-4 py-2 rounded-md text-stone-600 hover:bg-teal-50 hover:text-teal-700 transition-colors">Recursos</a>
+                    </li>
+                    <li><a href="#impacto"
+                            class="nav-link block w-full text-left px-4 py-2 rounded-md text-stone-600 hover:bg-teal-50 hover:text-teal-700 transition-colors">Impacto</a>
+                    </li>
+                    <li><a href="/index.html" class="volver block w-full text-left px-4 py-2 rounded-md">⬅️ Volver</a>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="w-full lg:w-[calc(100%-16rem)]">
+            <div class="max-w-4xl mx-auto p-4 sm:p-8">
+
+                <!-- Header -->
+                <header class="bg-white rounded-xl shadow-lg p-8 mb-12 text-center">
+                    <h1>Proyecto 3</h1>
+                    <h1 class="text-3xl sm:text-4xl font-bold text-teal-700 mb-2">Red Social de la comunidad FEN UAQ
+                    </h1>
+                    <p class="text-lg text-stone-600">Un espacio exclusivo para la comunidad de la Facultad de
+                        Enfermería.</p>
+                </header>
+
+                <!-- Section: Justificación -->
+                <section id="justificacion" class="mb-12 scroll-mt-20">
+                    <div class="bg-white rounded-xl shadow-lg p-8">
+                        <h2 class="text-2xl font-bold text-stone-800 mb-4">Desafío concreto</h2>
+                        <p class="text-stone-600 leading-relaxed"> La comunicación académica a menudo se mezcla
+                            con la vida personal en redes sociales públicas. Esto genera problemas de seguridad
+                            y privacidad, diluye el enfoque de las conversaciones y expone a los miembros
+                            de la comunidad a riesgos innecesarios. Necesitamos un espacio dedicado que
+                            demuestre la preocupación de la Facultad por la seguridad y el bienestar de sus miembros,
+                            promoviendo una comunicación efectiva y segura con una identidad institucional enaltecida.
+                        </p>
+                    </div>
+                </section>
+
+                <!-- Section: Objetivos -->
+                <section id="objetivos" class="mb-12 scroll-mt-20">
+                    <div class="bg-white rounded-xl shadow-lg p-8">
+                        <h2 class="text-2xl font-bold text-stone-800 mb-6">Solución y Objetivos Claros</h2>
+                        <p class="text-stone-600 mb-8 max-w-3xl">
+                            Se propone diseñar y desarrollar una red social exclusiva para la comunidad de
+                            la Facultad de Enfermería, que garantice la privacidad y seguridad de sus miembros.
+                            Esta plataforma permitirá una comunicación fluida y segura, facilitando la colaboración
+                            académica y el intercambio de ideas en un entorno controlado.
+                        </p>
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div class="bg-teal-50 p-6 rounded-lg border-l-4 border-teal-500">
+                                <h3 class="font-bold text-teal-800 mb-2">🎯 Objetivo Principal</h3>
+                                <p class="text-stone-700">Crear un entorno seguro y privado para la comunicación
+                                    académica de la comunidad de la Facultad de Enfermería.</p>
+                            </div>
+                            <div class="bg-teal-50 p-6 rounded-lg border-l-4 border-teal-500">
+                                <h3 class="font-semibold text-stone-800 mb-2">📊 Mejora de los servicios</h3>
+                                <p class="text-stone-600">La cercanía y atención para los usuarios de la biblioteca
+                                    serán prioritarias.</p>
+                            </div>
+                            <div class="bg-teal-50 p-6 rounded-lg border-l-4 border-teal-500">
+                                <h3 class="font-semibold text-stone-800 mb-2">💡 Espacio dinámico</h3>
+                                <p class="text-stone-600">Promueve la interacción y motiva a las usuarios a colaborar
+                                    y mantenerse conectados.</p>
+                            </div>
+                            <div class="bg-teal-50 p-6 rounded-lg border-l-4 border-teal-500">
+                                <h3 class="font-semibold text-stone-800 mb-2">🤝 Integración e identidad</h3>
+                                <p class="text-stone-600">Se difunde la identidad institucional de la Facultad de
+                                    Enfermería
+                                    y se instalan medios digitales para la proliferación de nuevos proyectos.</p>
+                            </div>
+                            <div class="p-6 bg-teal-50 rounded-lg border-l-4 border-teal-500">
+                                <h3 class="font-bold text-teal-800 mb-2">🎯 Plataforma Segura y Exclusiva</h3>
+                                <p class="text-stone-700">Crear un entorno privado para la comunidad de la facultad.</p>
+                            </div>
+                            <div class="bg-teal-50 p-6 rounded-lg border-l-4 border-teal-500">
+                                <h3 class="font-semibold text-stone-800 mb-2">🔒 Perfiles Académicos</h3>
+                                <p class="text-stone-600">Garantizar que la información personal no sea visible ni
+                                    accesible.</p>
+                            </div>
+                            <div class="bg-teal-50 p-6 rounded-lg border-l-4 border-teal-500">
+                                <h3 class="font-semibold text-stone-800 mb-2">🤝 Fomentar Colaboración</h3>
+                                <p class="text-stone-600">Unificar la comunicación y el intercambio de conocimientos.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Section: El Proceso -->
+                <section id="proceso" class="mb-12 scroll-mt-20">
+                    <div class="bg-white rounded-xl shadow-lg p-8">
+                        <h2 class="text-2xl font-bold text-stone-800 mb-4">Acciones para lograrlo</h2>
+                        <p class="text-stone-600 mb-8 max-w-3xl">
+                            Imagina una red social donde las conversaciones se centran en el estudio y 
+                            la investigación, con un "feed" diseñado para la colaboración académica. Mediante una
+                            disciplina de trabajo estructurada y explotando herramientas tecnológicas accesibles, 
+                            podemos crear un espacio digital que no solo proteja la privacidad de los usuarios, 
+                            sino que también fomente la colaboración y el intercambio de conocimientos. Con la 
+                            capacidad de publicar mensajes, compartir recursos relevantes para sus estudios o 
+                            investigaciones, y comunicarse de forma privada a través de un chat o mensajería. 
+                            El sistema estará diseñado para no permitir la inclusión de información personal 
+                            ajena al ámbito académico.
+                        </p>
+
+                        <div
+                            class="flex flex-col md:flex-row items-center justify-between space-y-4 md:space-y-0 md:space-x-4 mb-8">
+                            <div
+                                class="text-center p-4 rounded-lg transition-transform duration-300 hover:scale-105 hover:bg-stone-50">
+                                <div class="text-4xl mb-2">🫆​​</div>
+                                <h4 class="font-semibold">Levantamiento de requerimientos</h4>
+                                <p class="text-sm text-stone-500">Reuniones de trabajo para conocer los requerimientos del sistema.</p>
+                            </div>
+                            <div class="text-2xl text-stone-300 transform rotate-90 md:rotate-0">➔</div>
+                            <div
+                                class="text-center p-4 rounded-lg transition-transform duration-300 hover:scale-105 hover:bg-stone-50">
+                                <div class="text-4xl mb-2">​✅​</div>
+                                <h4 class="font-semibold">Diseño</h4>
+                                <p class="text-sm text-stone-500">Interfaz sencilla y elegante.</p>
+                            </div>
+                            <div class="text-2xl text-stone-300 transform rotate-90 md:rotate-0">➔</div>
+                            <div
+                                class="text-center p-4 rounded-lg transition-transform duration-300 hover:scale-105 hover:bg-stone-50">
+                                <div class="text-4xl mb-2">✍️</div>
+                                <h4 class="font-semibold">Desarrollo</h4>
+                                <p class="text-sm text-stone-500">Código y documentación para producción.</p>
+                            </div>
+                            <div class="text-2xl text-stone-300 transform rotate-90 md:rotate-0">➔</div>
+                            <div
+                                class="text-center p-4 rounded-lg transition-transform duration-300 hover:scale-105 hover:bg-stone-50">
+                                <div class="text-4xl mb-2">📝​</div>
+                                <h4 class="font-semibold">Implementación</h4>
+                                <p class="text-sm text-stone-500">Pruebas y ajustes finales para entregar el sistema.</p>
+                            </div>
+                        </div>
+
+                        <h3 class="text-xl font-bold text-stone-700 mt-10 mb-4">Entregables Clave</h3>
+                        <ul class="list-disc list-inside space-y-2 text-stone-600">
+                            <li>Código y documentación del sistema para programador y administradores.</li>
+                            <li>Documentación de manuales de uso y difusión</li>
+
+                        </ul>
+                    </div>
+                </section>
+
+                <!-- Section: Cronograma -->
+                <section id="cronograma" class="mb-12 scroll-mt-20">
+                    <div class="bg-white rounded-xl shadow-lg p-8">
+                        <h2 class="text-2xl font-bold text-stone-800 mb-8">Cronograma del Proyecto</h2>
+                        <div class="relative border-l-2 border-teal-200">
+                            <!-- Fase 1 -->
+                            <div class="timeline-item mb-8 ml-6 cursor-pointer">
+                                <span
+                                    class="absolute flex items-center justify-center w-6 h-6 bg-teal-200 rounded-full -left-3 ring-8 ring-white">1</span>
+                                <div class="p-4 bg-stone-50 rounded-lg border border-stone-200 shadow-sm">
+                                    <div class="flex justify-between items-center">
+                                        <h3 class="text-lg font-semibold text-stone-900">Fase 1: Planificación y Diseño
+                                        </h3>
+                                        <time class="text-sm font-normal text-stone-500">Duración: 1 mes</time>
+                                    </div>
+                                    <div>
+                                        <p class="text-base font-normal text-stone-500 mt-2">documento de levantamiento de
+                                            requerimientos y planeación de trabajo y selección de las herramientas
+                                            tecnológicas.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Fase 2 -->
+                            <div class="timeline-item mb-8 ml-6 cursor-pointer">
+                                <span
+                                    class="absolute flex items-center justify-center w-6 h-6 bg-teal-200 rounded-full -left-3 ring-8 ring-white">2</span>
+                                <div class="p-4 bg-stone-50 rounded-lg border border-stone-200 shadow-sm">
+                                    <div class="flex justify-between items-center">
+                                        <h3 class="text-lg font-semibold text-stone-900">Fase 2: Codificación y desarrollo del software </h3>
+                                        <time class="text-sm font-normal text-stone-500">Duración: 4 meses</time>
+                                    </div>
+                                    <div>
+                                        <p class="text-base font-normal text-stone-500 mt-2">Incorporación sistemática de las funcionalidades
+                                            requeridas para que la plataforma opere según las necesidades de los usuarios.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Fase 3 -->
+                            <div class="timeline-item mb-8 ml-6 cursor-pointer">
+                                <span
+                                    class="absolute flex items-center justify-center w-6 h-6 bg-teal-200 rounded-full -left-3 ring-8 ring-white">3</span>
+                                <div class="p-4 bg-stone-50 rounded-lg border border-stone-200 shadow-sm">
+                                    <div class="flex justify-between items-center">
+                                        <h3 class="text-lg font-semibold text-stone-900">Fase 3: Implementación y pruebas.
+                                        </h3>
+                                        <time class="text-sm font-normal text-stone-500">Duración: 1 mes</time>
+                                    </div>
+                                    <div>
+                                        <p class="text-base font-normal text-stone-500 mt-2">Implementación de una versión de Pruebas
+                                            con usuarios reales para que den su retroalimentación y poder hacer ajustes.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Fase 4 -->
+                            <div class="timeline-item ml-6 cursor-pointer">
+                                <span
+                                    class="absolute flex items-center justify-center w-6 h-6 bg-teal-200 rounded-full -left-3 ring-8 ring-white">2</span>
+                                <div class="p-4 bg-stone-50 rounded-lg border border-stone-200 shadow-sm">
+                                    <div class="flex justify-between items-center">
+                                        <h3 class="text-lg font-semibold text-stone-900">Fase 4: Liberación y seguimiento</h3>
+                                        <time class="text-sm font-normal text-stone-500">Duración: 1 mes</time>
+                                    </div>
+                                    <div>
+                                        <p class="text-base font-normal text-stone-500 mt-2">Entrega de las funcionalidades completas 
+                                            y documentación del sistema. Seguimiento y soporte a los usuarios.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Section: Recursos -->
+                <section id="recursos" class="mb-12 scroll-mt-20">
+                    <div class="bg-white rounded-xl shadow-lg p-8">
+                        <h2 class="text-2xl font-bold text-stone-800 mb-6">Recursos Necesarios</h2>
+                        <div class="grid sm:grid-cols-2 gap-6 text-center">
+                            <div class="p-6 bg-stone-50 rounded-lg">
+                                <div class="text-4xl mb-3">🧑‍💼</div>
+                                <h3 class="font-semibold text-stone-800">Personal</h3>
+                                <p class="text-stone-600 text-sm">Personal de biblioteca</p>
+                                </p>
+                            </div>
+                            <div class="p-6 bg-stone-50 rounded-lg">
+                                <div class="text-4xl mb-3">💻</div>
+                                <h3 class="font-semibold text-stone-800">Tecnológicos</h3>
+                                <p class="text-stone-600 text-sm">Computadora de la recepción.</p>
+                            </div>
+                            <div class="p-6 bg-stone-50 rounded-lg">
+                                <div class="text-4xl mb-3">📄</div>
+                                <h3 class="font-semibold text-stone-800">Materiales</h3>
+                                <p class="text-stone-600 text-sm">Ninguno</p>
+                            </div>
+                            <div class="p-6 bg-stone-50 rounded-lg">
+                                <div class="text-4xl mb-3">💰</div>
+                                <h3 class="font-semibold text-stone-800">Económicos</h3>
+                                <p class="text-stone-600 text-sm">$ 0.00.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Section: Impacto -->
+                <section id="impacto" class="scroll-mt-20">
+                    <div class="bg-teal-700 text-white rounded-xl shadow-lg p-8">
+                        <h2 class="text-2xl font-bold mb-4 text-center">Resultados de impacto medible</h2>
+                        <p class="text-teal-100 max-w-3xl mx-auto text-center mb-8">Con un entorno digital
+                            adaptado a las necesidades de la comunidad académica, se espera mejorar la comunicación,
+                            colaboración e identidad institucional, promoviendo un sentido de pertenencia y facilitando
+                            el intercambio de conocimientos en un espacio seguro y privado.
+                        </p>
+
+                        <div>
+                            <h3 class="text-xl font-semibold mb-4 text-teal-100">Claves para Proyectos Emergentes</h3>
+                            <ul class="space-y-3">
+                                <li class="flex items-start"><span class="text-amber-400 mr-3 mt-1">✓</span>
+                                    Incorporación de atención especializada de servicios bibliotecarios</li>
+                                <li class="flex items-start"><span class="text-amber-400 mr-3 mt-1">✓</span>
+                                    Promoción de comunicados oficiales de fácil acceso.</li>
+                                <li class="flex items-start"><span class="text-amber-400 mr-3 mt-1">✓</span>
+                                    Integración con el catálogo de las bibliotecas.</li>
+                                <li class="flex items-start"><span class="text-amber-400 mr-3 mt-1">✓</span>
+                                    Fuente de información para agentes de inteligencia artificial especializado en
+                                    nuestras bibliotecas.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <button
+                class="bg-teal-600 text-white font-semibold py-2 px-4 rounded-lg shadow-md hover:bg-teal-700 transition duration-200"><a
+                    href="/index.html">Volver</a></button>
+        </main>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>

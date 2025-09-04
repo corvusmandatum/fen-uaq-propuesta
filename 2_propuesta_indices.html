@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proyecto 2: Enriquecimiento del Catálogo</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="bg-stone-100">
+
+    <div class="flex">
+        <!-- Sidebar Navigation -->
+        <aside id="sidebar" class="hidden lg:block sticky top-0 h-screen w-64 bg-white shadow-md p-4">
+            <div class="flex items-center mb-8">
+                <span class="text-2xl text-teal-600 mr-2">🔍</span>
+                <h1 class="text-lg font-bold text-stone-700">Sistema de Integración de índices</h1>
+            </div>
+            <nav>
+                <ul class="space-y-2">
+                    <li><a href="#justificacion"
+                            class="nav-link block w-full text-left px-4 py-2 rounded-md text-stone-600 hover:bg-teal-50 hover:text-teal-700 transition-colors">Justificación</a>
+                    </li>
+                    <li><a href="#objetivos"
+                            class="nav-link block w-full text-left px-4 py-2 rounded-md text-stone-600 hover:bg-teal-50 hover:text-teal-700 transition-colors">Objetivos</a>
+                    </li>
+                    <li><a href="#proceso"
+                            class="nav-link block w-full text-left px-4 py-2 rounded-md text-stone-600 hover:bg-teal-50 hover:text-teal-700 transition-colors">Proceso</a>
+                    </li>
+                    <li><a href="#cronograma"
+                            class="nav-link block w-full text-left px-4 py-2 rounded-md text-stone-600 hover:bg-teal-50 hover:text-teal-700 transition-colors">Cronograma</a>
+                    </li>
+                    <li><a href="#recursos"
+                            class="nav-link block w-full text-left px-4 py-2 rounded-md text-stone-600 hover:bg-teal-50 hover:text-teal-700 transition-colors">Recursos</a>
+                    </li>
+                    <li><a href="#impacto"
+                            class="nav-link block w-full text-left px-4 py-2 rounded-md text-stone-600 hover:bg-teal-50 hover:text-teal-700 transition-colors">Impacto</a>
+                    </li>
+                    <li><a href="/index.html" class="volver block w-full text-left px-4 py-2 rounded-md">⬅️ Volver</a>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="w-full lg:w-[calc(100%-16rem)]">
+            <div class="max-w-4xl mx-auto p-4 sm:p-8">
+
+                <!-- Header -->
+                <header class="bg-white rounded-xl shadow-lg p-8 mb-12 text-center">
+                    <h1>Proyecto 1</h1>
+                    <h1 class="text-3xl sm:text-4xl font-bold text-teal-700 mb-2">Enriquecimiento del Catálogo con
+                        Índices Temáticos</h1>
+                    <p class="text-lg text-stone-600">Aumentar la eficacia del catálogo en línea.</p>
+                </header>
+
+                <!-- Section: Justificación -->
+                <section id="justificacion" class="mb-12 scroll-mt-20">
+                    <div class="bg-white rounded-xl shadow-lg p-8">
+                        <h2 class="text-2xl font-bold text-stone-800 mb-4">Desafío concreto</h2>
+                        <p class="text-stone-600 leading-relaxed">
+                            Con más de 1800 títulos en la colección impresa tan solo en la
+                            Biblioteca de Corregidora en la Unidad Deportiva, el catálogo actual se limita
+                            a puntos de acceso básicos como autor y título. Esto dificulta que los usuarios
+                            encuentren recursos valiosos basados en conceptos o temas específicos mencionados
+                            en el contenido, lo que reduce la utilidad de nuestro vasto acervo.
+                        </p>
+                    </div>
+                </section>
+
+                <!-- Section: Objetivos -->
+                <section id="objetivos" class="mb-12 scroll-mt-20">
+                    <div class="bg-white rounded-xl shadow-lg p-8">
+                        <h2 class="text-2xl font-bold text-stone-800 mb-6">Solución y Objetivos Claros</h2>
+                        <p class="text-stone-600 mb-8 max-w-3xl">
+                            Proponemos implementar un sistema de control y seguimiento de la cobertura
+                            bibliográfica que permita vincular las bibliografías curriculares con el
+                            catálogo de la biblioteca. Este sistema proporcionará datos precisos para
+                            medir la cobertura, identificar brechas y priorizar adquisiciones,
+                            asegurando que la colección responda efectivamente a las necesidades académicas.
+                        </p>
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div class="bg-teal-50 p-6 rounded-lg border-l-4 border-teal-500">
+                                <h3 class="font-bold text-teal-800 mb-2">🎯 Objetivo Principal</h3>
+                                <p class="text-stone-700">Mejorar la recuperabilidad de los recursos de la
+                                    biblioteca a través de una búsqueda más granular por tema.</p>
+                            </div>
+                            <div class="bg-teal-50 p-6 rounded-lg border-l-4 border-teal-500">
+                                <h3 class="font-semibold text-stone-800 mb-2">📊 Acceso a la información</h3>
+                                <p class="text-stone-600">Aumentar el número de puntos de acceso en el OPAC
+                                    para una exploración más rica.</p>
+                            </div>
+                            <div class="bg-teal-50 p-6 rounded-lg border-l-4 border-teal-500">
+                                <h3 class="font-semibold text-stone-800 mb-2">💡 Catálogo enriquecido</h3>
+                                <p class="text-stone-600">Elevar la calidad y la utilidad del catálogo para
+                                    toda la comunidad académica.</p>
+                            </div>
+                            <div class="bg-teal-50 p-6 rounded-lg border-l-4 border-teal-500">
+                                <h3 class="font-semibold text-stone-800 mb-2">🤝 Fomentar Colaboración</h3>
+                                <p class="text-stone-600">Trabajo en equipo y adquisición de conocimiento profundo del
+                                    acervo bibliográfico.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Section: El Proceso -->
+                <section id="proceso" class="mb-12 scroll-mt-20">
+                    <div class="bg-white rounded-xl shadow-lg p-8">
+                        <h2 class="text-2xl font-bold text-stone-800 mb-4">Acciones para lograrlo</h2>
+                        <p class="text-stone-600 mb-8 max-w-3xl">
+                            Proponemos un flujo de trabajo para capturar los índices temáticos de nuestra colección
+                            impresa y enriquecer el catálogo digital. Usaremos tecnología de Machine Learning para
+                            automatizar la extracción y el cotejo de datos, asegurando precisión y eficiencia.
+                            Siempre manteniendo la consistencia y calidad de los datos.
+                        </p>
+
+                        <div
+                            class="flex flex-col md:flex-row items-center justify-between space-y-4 md:space-y-0 md:space-x-4 mb-8">
+                            <div
+                                class="text-center p-4 rounded-lg transition-transform duration-300 hover:scale-105 hover:bg-stone-50">
+                                <div class="text-4xl mb-2">🖼️</div>
+                                <h4 class="font-semibold">Digitalización</h4>
+                                <p class="text-sm text-stone-500">Escaneado de los índices con escáner.</p>
+                            </div>
+                            <div class="text-2xl text-stone-300 transform rotate-90 md:rotate-0">➔</div>
+                            <div
+                                class="text-center p-4 rounded-lg transition-transform duration-300 hover:scale-105 hover:bg-stone-50">
+                                <div class="text-4xl mb-2"> OCR </div>
+                                <h4 class="font-semibold">Reconocimiento</h4>
+                                <p class="text-sm text-stone-500">Uso de OCR para convertir a texto.</p>
+                            </div>
+                            <div class="text-2xl text-stone-300 transform rotate-90 md:rotate-0">➔</div>
+                            <div
+                                class="text-center p-4 rounded-lg transition-transform duration-300 hover:scale-105 hover:bg-stone-50">
+                                <div class="text-4xl mb-2">✍️</div>
+                                <h4 class="font-semibold">Revisión</h4>
+                                <p class="text-sm text-stone-500">Revisión manual y corrección de los datos.</p>
+                            </div>
+                            <div class="text-2xl text-stone-300 transform rotate-90 md:rotate-0">➔</div>
+                            <div
+                                class="text-center p-4 rounded-lg transition-transform duration-300 hover:scale-105 hover:bg-stone-50">
+                                <div class="text-4xl mb-2">🔗</div>
+                                <h4 class="font-semibold">Integración</h4>
+                                <p class="text-sm text-stone-500">Integrar el texto en cada registro bibliográfico.</p>
+                            </div>
+                        </div>
+
+                        <h3 class="text-xl font-bold text-stone-700 mt-10 mb-4">Entregables Clave</h3>
+                        <ul class="list-disc list-inside space-y-2 text-stone-600">
+                            <li>Comparación estadística de la recuperabilidad en un informe detallado.</li>
+                            <li>Modelo de machine learning en un script de Python en la nube para su aplicación en otros
+                                proyectos.</li>
+                            <li>Reporte de registros bibliográficos alterados en el KOHA.</li>
+                            <li>Documentación para futura transferencia de conocimientos entre equipos.</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <!-- Section: Cronograma -->
+                <section id="cronograma" class="mb-12 scroll-mt-20">
+                    <div class="bg-white rounded-xl shadow-lg p-8">
+                        <h2 class="text-2xl font-bold text-stone-800 mb-8">Cronograma del Proyecto</h2>
+                        <div class="relative border-l-2 border-teal-200">
+                            <!-- Fase 1 -->
+                            <div class="timeline-item mb-8 ml-6 cursor-pointer">
+                                <span
+                                    class="absolute flex items-center justify-center w-6 h-6 bg-teal-200 rounded-full -left-3 ring-8 ring-white">1</span>
+                                <div class="p-4 bg-stone-50 rounded-lg border border-stone-200 shadow-sm">
+                                    <div class="flex justify-between items-center">
+                                        <h3 class="text-lg font-semibold text-stone-900">Fase 1: Planificación y Diseño
+                                        </h3>
+                                        <time class="text-sm font-normal text-stone-500">Duración: 1 mes</time>
+                                    </div>
+                                    <div>
+                                        <p class="text-base font-normal text-stone-500 mt-2">Definición detallada del
+                                            proceso, diseño de la estructura de la base de datos y selección de
+                                            herramientas tecnológicas.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Fase 2 -->
+                            <div class="timeline-item mb-8 ml-6 cursor-pointer">
+                                <span
+                                    class="absolute flex items-center justify-center w-6 h-6 bg-teal-200 rounded-full -left-3 ring-8 ring-white">2</span>
+                                <div class="p-4 bg-stone-50 rounded-lg border border-stone-200 shadow-sm">
+                                    <div class="flex justify-between items-center">
+                                        <h3 class="text-lg font-semibold text-stone-900">Fase 2: Escaneo y aplicación de
+                                            OCR </h3>
+                                        <time class="text-sm font-normal text-stone-500">Duración: 3 meses</time>
+                                    </div>
+                                    <div>
+                                        <p class="text-base font-normal text-stone-500 mt-2">Concentración en la
+                                            digitalización de los índices y la aplicación de técnicas de OCR para la
+                                            extracción de texto.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Fase 3 -->
+                            <div class="timeline-item mb-8 ml-6 cursor-pointer">
+                                <span
+                                    class="absolute flex items-center justify-center w-6 h-6 bg-teal-200 rounded-full -left-3 ring-8 ring-white">3</span>
+                                <div class="p-4 bg-stone-50 rounded-lg border border-stone-200 shadow-sm">
+                                    <div class="flex justify-between items-center">
+                                        <h3 class="text-lg font-semibold text-stone-900">Fase 3: Modificación de los
+                                            registros bibliográficos</h3>
+                                        <time class="text-sm font-normal text-stone-500">Duración: 1 mes</time>
+                                    </div>
+                                    <div>
+                                        <p class="text-base font-normal text-stone-500 mt-2">Modificación de los
+                                            registros bibliográficos para incluir los índices temáticos.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Fase 4 -->
+                            <div class="timeline-item ml-6 cursor-pointer">
+                                <span
+                                    class="absolute flex items-center justify-center w-6 h-6 bg-teal-200 rounded-full -left-3 ring-8 ring-white">2</span>
+                                <div class="p-4 bg-stone-50 rounded-lg border border-stone-200 shadow-sm">
+                                    <div class="flex justify-between items-center">
+                                        <h3 class="text-lg font-semibold text-stone-900">Fase 4: Implementación de los
+                                            índices temáticos y encuesta de satisfacción</h3>
+                                        <time class="text-sm font-normal text-stone-500">Duración: 1 mes</time>
+                                    </div>
+                                    <div>
+                                        <p class="text-base font-normal text-stone-500 mt-2">Implementación de los
+                                            índices temáticos en el catálogo y realización de una encuesta de
+                                            satisfacción para evaluar la efectividad del nuevo sistema .</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Section: Recursos -->
+                <section id="recursos" class="mb-12 scroll-mt-20">
+                    <div class="bg-white rounded-xl shadow-lg p-8">
+                        <h2 class="text-2xl font-bold text-stone-800 mb-6">Recursos Necesarios</h2>
+                        <div class="grid sm:grid-cols-2 gap-6 text-center">
+                            <div class="p-6 bg-stone-50 rounded-lg">
+                                <div class="text-4xl mb-3">🧑‍💼</div>
+                                <h3 class="font-semibold text-stone-800">Personal</h3>
+                                <p class="text-stone-600 text-sm">Todas las personas que trabajamos en biblioteca.
+                                    (Pedir apoyo a los pasantes)</p>
+                                </p>
+                            </div>
+                            <div class="p-6 bg-stone-50 rounded-lg">
+                                <div class="text-4xl mb-3">💻</div>
+                                <h3 class="font-semibold text-stone-800">Tecnológicos</h3>
+                                <p class="text-stone-600 text-sm">Celular con cámara y la computadora que tenemos en la
+                                    recepción de la biblioteca.</p>
+                            </div>
+                            <div class="p-6 bg-stone-50 rounded-lg">
+                                <div class="text-4xl mb-3">📄</div>
+                                <h3 class="font-semibold text-stone-800">Materiales</h3>
+                                <p class="text-stone-600 text-sm">Libros de las bibliotecas. Guantes y cubrebocas</p>
+                            </div>
+                            <div class="p-6 bg-stone-50 rounded-lg">
+                                <div class="text-4xl mb-3">💰</div>
+                                <h3 class="font-semibold text-stone-800">Económicos</h3>
+                                <p class="text-stone-600 text-sm">$ 0.00.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Section: Impacto -->
+                <section id="impacto" class="scroll-mt-20">
+                    <div class="bg-teal-700 text-white rounded-xl shadow-lg p-8">
+                        <h2 class="text-2xl font-bold mb-4 text-center">Resultados de impacto medible</h2>
+                        <p class="text-teal-100 max-w-3xl mx-auto text-center mb-8">La localización de libros se verá 
+                            favorecida por la implementación de este sistema y se puede incorporar como una parte 
+                            permanente del proceso siendo una mejora continua en la experiencia del usuario.</p>
+
+                        <div>
+                            <h3 class="text-xl font-semibold mb-4 text-teal-100">Claves para Proyectos Emergentes</h3>
+                            <ul class="space-y-3">
+                                <li class="flex items-start"><span class="text-amber-400 mr-3 mt-1">✓</span> Digitalización
+                                    de documentos con posible aplicación de archivos administrativos.</li>
+                                <li class="flex items-start"><span class="text-amber-400 mr-3 mt-1">✓</span> Robustecimiento
+                                    de las operaciones en biblioteca impresa para pasar a un enfoque de recursos electrónicos.</li>
+                                <li class="flex items-start"><span class="text-amber-400 mr-3 mt-1">✓</span> Módulo capaz
+                                    de integrarse a un sistema de gestión bibliotecaria mayor enfocado al usuario.</li>
+                                <li class="flex items-start"><span class="text-amber-400 mr-3 mt-1">✓</span>
+                                    Fuente de información para agentes de inteligencia artificial especializado en nuestras bibliotecas.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <button
+                class="bg-teal-600 text-white font-semibold py-2 px-4 rounded-lg shadow-md hover:bg-teal-700 transition duration-200"><a
+                    href="/index.html">Volver</a></button>
+        </main>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
